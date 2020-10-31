@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+function myFunction() {
+var regexInput = $('#inputField').val();
+
+$.ajax({
+    type: "POST",
+    url: "/Pokeregex",
+    data: JSON.stringify([regexInput]),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+	'Access-Control-Allow-Origin': '*'
+    },
+    success: function(e) {$('#demo').html(e);}
+});
+}
+    </script>
+</head>
+<body>
+
+    <h1>Pokémon Regex</h1>
+
+    <input id="inputField" />
+    <button type="button"
+            onclick="myFunction()">
+        Search
+    </button>
+
+    <p id="demo"></p>
+
+</body>

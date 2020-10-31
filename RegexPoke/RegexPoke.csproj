@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Dan Bottiglieri</Authors>
+    <Company>Dan Corp</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="pokemon.json" />
+    <None Remove="pokemonnames.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="pokemonnames.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
